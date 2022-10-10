@@ -29,7 +29,6 @@ export class LoginService {
         'Authorization': 'Basic ' + basicAuth
       })
     };
-    // const url = 'https://localhost:44306/api/Login/LoginUser';
     return this.http.post<any>(`${environment.apiUrl}/Login/LoginUser`, login, httpOptions);
   }
   
