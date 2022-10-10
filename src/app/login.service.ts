@@ -22,17 +22,16 @@ export class LoginService {
   }
 
   public loginUser(login: ILogin): Observable<ILoginInfo> {
+    let basicAuth = window.btoa(`${environment.userName}`+':'+`${environment.password}`)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'Authorization': 'Basic ' + window.btoa('pickpro:Admin$11')
+        'Authorization': 'Basic ' + basicAuth
       })
     };
     // const url = 'https://localhost:44306/api/Login/LoginUser';
     return this.http.post<any>(`${environment.apiUrl}/Login/LoginUser`, login, httpOptions);
   }
-
-  
   
 }
 
